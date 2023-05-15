@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
-import { BsArrowLeftShort } from 'react-icons/bs';
+import { BiArrowBack } from 'react-icons/bi';
 import { fetchMovieById } from '../services/api';
 import MovieCard from '../components/MovieDetailCard/MovieDetailCard';
 import { Button, Container, StyledLink } from './MovieDetails.styled';
@@ -33,7 +33,7 @@ const MovieDetails = () => {
       <Container>
         <StyledLink to={location?.state?.from ?? '/'}>
           <Button type="button">
-            <BsArrowLeftShort
+            <BiArrowBack
               style={{ width: '25px', height: '25px', display: 'inline-block' }}
             />
             Go back
