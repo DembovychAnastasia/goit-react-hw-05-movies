@@ -16,6 +16,7 @@ export const SectionTitle = styled.h2`
   color: #000000;
   /* margin: 0 auto; */
   padding: 20px 0px;
+  text-align: center;
 `;
 export const StyledSectionForm = styled.section`
   display: flex;
@@ -53,10 +54,14 @@ export const StyledLink = styled(Link)`
     rgba(0, 0, 0, 0.5) 1px 1px 1px;
   color: #000000;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
 
   &:hover,
   &:focus {
     color: #de3614;
-    text-shadow: 0 0 15px #635d5c;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 32px 0px;
   }
 `;

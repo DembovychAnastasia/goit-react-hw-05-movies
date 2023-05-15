@@ -11,8 +11,8 @@ export const Loader = () => {
         wrapperStyle={{
           display: 'block',
           marginTop: 20,
-          // marginLeft: 'auto',
-          // marginRight: 'auto',
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       />
     );

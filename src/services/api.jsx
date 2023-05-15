@@ -23,11 +23,11 @@ export const fetchTrendMovies = async (page = 1, lng) => {
 
 
 
-export const fetchMovieByName = async (page = 1, query = '', lng) => {
+export const fetchMovieByName = async (query) => {
   try {
     const urlParam = query
-      ? `/search/movie?page=${page}&query=${query}&language=${lng}`
-      : `/movie/upcoming?page=${page}&language=${lng}`;
+      ? `https://api.themoviedb.org/3/search/movie?api_key=7d4ac179e844e8d16c4af681deb5028c&language=en-US&query=${query}&page=1&include_adult=false`
+      : `/trending/movie/day`;
     const { data } = await axios.get(urlParam);
     return data;
   } catch (error) {
@@ -49,29 +49,20 @@ export const fetchMovieById = async (movieId, lng) => {
   }
 };
 
-export const fetchMovieCast = async (movieId, lng) => {
+export const fetchMovieCast = async (movieId) => {
   try {
-    const { data } = await axios.get(`movie/${movieId}/credits`, {
-      params: {
-        id: movieId,
-        language: lng,
-      },
-    });
-    return data.cast;
+    const { data } = await axios.get(`movie/${movieId}/credits`);
+    return data;
   } catch (error) {
     throw new Error('Oops, there is no cast movie');
   }
 };
 
-export const etchMovieReviews = async (movieId, lng) => {
+
+export const fetchMovieReviews = async (movieId) => {
   try {
-    const { data } = await axios.get(`movie/${movieId}/reviews`, {
-      params: {
-        id: movieId,
-        language: lng,
-      },
-    });
-    return data.results;
+    const { data } = await axios.get(`movie/${movieId}/reviews`);
+    return data;
   } catch (error) {
     throw new Error('Oops, we don`t have any reviews');
   }
